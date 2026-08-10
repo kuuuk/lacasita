@@ -2,59 +2,111 @@ const especialidades = {
 
     pizza: {
 
-        titulo: "Pizzas Artesanales",
-
-        descripcion: "Masa de larga fermentación, ingredientes frescos y cocción al horno para lograr pizzas con identidad propia.",
-
-        imagen: "assets/img/pizza.jpg"
+titulo: "Pizzas Artesanales",
+    descripcion: "Masa de larga fermentación...",
+    imagenes: [
+        {
+            src: "assets/img/pizza.jpg",
+            titulo: "Pizza especial",
+            descripcion: "Jamón, palmitos, morrones..."
+        },
+        {
+            src: "assets/img/pizza2.png",
+            titulo: "Pizza de rúcula",
+            descripcion: "Jamón crudo, rúcula y parmesano..."
+        }
+    ]
 
     },
     
-    empanadas: {
+empanadas: {
 
-    titulo: "Empanadas Caseras",
+    imagenes: [
+        {
+            src: "assets/img/empanadas.jpg",
+            titulo: "Empanadas Caseras",
+            descripcion: "Variedades clásicas y especiales elaboradas artesanalmente con ingredientes frescos."
+        }
+    ]
 
-    descripcion: "Variedades clásicas y especiales elaboradas artesanalmente con ingredientes frescos.",
-
-    imagen: "assets/img/empanadas.jpg"
-
-    },
+},
     
-    ahumados: {
+ahumados: {
 
-    titulo: "Ahumados",
+    imagenes: [
+        {
+            src: "assets/img/ahumados2.jpg",
+            titulo: "Ahumados",
+            descripcion: "Ahumados de blablabla."
+        }
+    ]
+},
+cervezas: {
 
-    descripcion: "Ahumados de blablabla.",
+    imagenes: [
+        {
+            src: "assets/img/cervezas2.jpg",
+            titulo: "Cervezas Artesanales",
+            descripcion: "Cervezas artesanales marca blablabiribiri."
+        }
+    ]
 
-    imagen: "assets/img/ahumados2.jpg"
-
-    },
-
-    cervezas: {
-
-    titulo: "Cervezas Artesanales",
-
-    descripcion: "Cervezas artesanales marca blablabiribiri.",
-
-    imagen: "assets/img/cervezas2.jpg"
-
-    },    
+}   
 };
 
 const imgEspecialidad = document.getElementById("especialidad-img");
-
 const tituloEspecialidad = document.getElementById("especialidad-titulo");
 const descripcionEspecialidad = document.getElementById("especialidad-descripcion");
 
+const botonPrev = document.querySelector(".especialidad-prev");
+const botonNext = document.querySelector(".especialidad-next");
+
+let imagenActual = 0;
+let especialidadActual = "pizza";
+
 function cargarEspecialidad(tipo){
+    
+    especialidadActual = tipo;
+    imagenActual = 0;
 
-    const data = especialidades[tipo];
-
-    imgEspecialidad.src = data.imagen;
-    tituloEspecialidad.textContent = data.titulo;
-    descripcionEspecialidad.textContent = data.descripcion;
-
+    mostrarImagen();
 }
+
+function mostrarImagen(){
+
+    const data = especialidades[especialidadActual];
+    const imagen = data.imagenes[imagenActual];
+
+    imgEspecialidad.src = imagen.src;
+    tituloEspecialidad.textContent = imagen.titulo;
+    descripcionEspecialidad.textContent = imagen.descripcion;
+}
+botonPrev.addEventListener("click", () => {
+
+    const imagenes = especialidades[especialidadActual].imagenes;
+
+    imagenActual--;
+
+    if (imagenActual < 0) {
+        imagenActual = imagenes.length - 1;
+    }
+
+    mostrarImagen();
+});
+
+
+botonNext.addEventListener("click", () => {
+
+    const imagenes = especialidades[especialidadActual].imagenes;
+
+    imagenActual++;
+
+    if (imagenActual >= imagenes.length) {
+        imagenActual = 0;
+    }
+
+    mostrarImagen();
+});
 
 cargarEspecialidad("pizza");
 document.querySelectorAll(".categorias button").forEach(boton => {
@@ -87,3 +139,4 @@ document.querySelectorAll(".menu a").forEach(link => {
     });
 
 });
+

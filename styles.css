@@ -83,6 +83,10 @@ header {
 
     display: block;
 
+    background: transparent;
+
+    filter: invert(1);
+
 }
 
 
@@ -111,9 +115,11 @@ header {
 
     font-size: .95rem;
 
-    font-weight: 600;
-
     letter-spacing: .08em;
+        color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .25s ease;
 
 }
 
@@ -734,7 +740,7 @@ header {
 
     align-items: flex-start;
 
-    gap: 18px;
+    gap: 8px;
 
     background: #1d1d1d;
 
@@ -795,7 +801,7 @@ header {
 
     line-height: 1.6;
 
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 
     padding-top: 0;
 
@@ -849,23 +855,30 @@ header {
 
 }
 
-.btn-whatsapp:hover {
+.btn-whatsapp {
+    display: inline-block;
+    margin: 8px 0 18px;
 
-    background: #e2b05b;
+    padding: 12px 20px;
 
-    transform: translateY(-2px);
+    background: #d5a253;
+    color: #111;
 
+    border-radius: 999px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: .25s ease;
 }
 
-.btn-whatsapp {
-
-    box-shadow: 0 10px 25px rgba(213, 162, 83, .25);
-
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
 }
 
 .horarios {
 
-    margin: 28px 0;
+    margin: 18px 0;
 
     color: #cfcfcf;
 
@@ -873,11 +886,15 @@ header {
 
 }
 
+.horarios p {
+    margin: 0;
+}
+
 .horarios strong {
 
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 
     color: #fff;
 
@@ -982,6 +999,12 @@ header {
 
     gap: 20px;
 
+}
+
+.carta,
+.nosotros,
+.contacto {
+    scroll-margin-top: 90px;
 }
 
 @media (max-width: 768px) {
@@ -1150,7 +1173,7 @@ header {
 
         width: 100%;
 
-        height: 280px;
+        height: 350px;
 
         border-radius: 18px;
 

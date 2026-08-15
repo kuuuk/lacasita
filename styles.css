@@ -54,7 +54,7 @@ header {
 
     display: grid;
 
-    grid-template-columns: 170px 1fr auto;
+    grid-template-columns: 170px 1fr auto auto;
 
     align-items: center;
 
@@ -135,7 +135,8 @@ header {
    BOTON
 ========================== */
 
-.btn-reserva {
+.btn-reserva,
+.btn-delivery {
 
     background: #d5a253;
 
@@ -143,14 +144,18 @@ header {
 
     text-decoration: none;
 
-    padding: 14px 28px;
+    padding: 10px 22px;
 
     border-radius: 999px;
 
     font-weight: 600;
 
     transition: .25s;
+    font-size: .9rem;
 
+}
+.btn-delivery {
+    margin-left: 10px;
 }
 
 .btn-reserva:hover {
@@ -292,7 +297,12 @@ header {
 
     gap: 20px;
 
+    flex-wrap: wrap;
+
 }
+
+
+
 
 .hero .btn {
 
@@ -313,15 +323,6 @@ header {
 .hero .btn:hover {
 
     transform: translateY(-3px);
-
-}
-
-
-.hero .secundario {
-
-    background: transparent;
-
-    border: 2px solid white;
 
 }
 
@@ -1043,9 +1044,11 @@ header {
     right: 15px;
 }
 
+#especialidad-img {
+    transition: opacity .18s ease;
+}
+
 @media (max-width: 768px) {
-
-
 
     .categorias {
         display: grid;
@@ -1228,4 +1231,18 @@ header {
         padding: 32px 24px;
 
     }
+
+.hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 12px;
+}
+
+.hero-buttons .btn:first-child {
+    grid-column: 1 / -1;
+}
+.btn-delivery {
+    display: none;
+}
 }

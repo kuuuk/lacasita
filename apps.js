@@ -72,15 +72,24 @@ function cargarEspecialidad(tipo){
     mostrarImagen();
 }
 
-function mostrarImagen(){
+function mostrarImagen() {
 
     const data = especialidades[especialidadActual];
     const imagen = data.imagenes[imagenActual];
 
-    imgEspecialidad.src = imagen.src;
-    tituloEspecialidad.textContent = imagen.titulo;
-    descripcionEspecialidad.textContent = imagen.descripcion;
+    imgEspecialidad.style.opacity = "0";
+
+    setTimeout(() => {
+
+        imgEspecialidad.src = imagen.src;
+        tituloEspecialidad.textContent = imagen.titulo;
+        descripcionEspecialidad.textContent = imagen.descripcion;
+
+        imgEspecialidad.style.opacity = "1";
+
+    }, 180);
 }
+
 botonPrev.addEventListener("click", () => {
 
     const imagenes = especialidades[especialidadActual].imagenes;
